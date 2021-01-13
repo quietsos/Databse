@@ -34,6 +34,7 @@ const againDocument = async () =>{
             Roll:1718022,
             active:true
         })
+
         const secondData = new againModel({
             name: "Md Tareq",
             University: "Islamic University, Bangladesh",
@@ -41,6 +42,7 @@ const againDocument = async () =>{
             Roll:1718016,
             active:true
         })
+
         const thirdData = new againModel({
             name: "Md Riad",
             University: "Islamic University, Bangladesh",
@@ -48,6 +50,7 @@ const againDocument = async () =>{
             Roll:1718002,
             active:true
         })
+
         // const again_result = await againData.save();
         const again_result = await againModel.insertMany([againData, firstData, secondData,thirdData]);
         console.log(again_result);
@@ -59,4 +62,14 @@ const againDocument = async () =>{
 
 }
 
-againDocument();
+// againDocument();
+
+
+const againGet = async () =>{
+    const again_result = await againModel.find({Department: "ICT"})
+    .select({name:1});
+    console.log(again_result);
+}
+
+againGet();
+
