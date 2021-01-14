@@ -81,5 +81,31 @@ const againGet = async () =>{
     console.log(again_result);
 }
 
-againGet();
+// againGet();
+
+
+const updateDocumnet = async (_id) =>{
+    try{
+        // const result = await againModel.updateOne({_id},{
+        const result = await againModel.findByIdAndUpdate({_id},{
+
+            $set : {
+                name: "Md Shohanuzzaman"
+            }
+            },{
+                use: true,
+                useFindAndModify: false
+            });
+
+        console.log(result);
+
+    }catch(err){
+        console.log(err);
+    }
+    
+
+}
+
+
+updateDocumnet("60001d415bc42538a2d291bb");
 
