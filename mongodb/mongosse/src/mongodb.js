@@ -107,5 +107,24 @@ const updateDocumnet = async (_id) =>{
 }
 
 
-updateDocumnet("60001d415bc42538a2d291bb");
+// updateDocumnet("60001d415bc42538a2d291bb");
+
+
+
+// delete the document
+
+const deleteDocumnet = async (_id) =>{
+    try{
+
+    
+    // const result = await againModel.deleteOne({_id});
+    const result = await againModel.findByIdAndDelete({_id});
+
+    console.log(result);
+    }catch(err){
+        console.log(err);
+    }
+}
+
+deleteDocumnet("60001d415bc42538a2d291bc");
 
