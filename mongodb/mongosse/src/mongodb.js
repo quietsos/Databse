@@ -20,7 +20,7 @@ const againDocument = async () =>{
 
     try{
         const againData = new againModel({
-            name: "Md Shohanuzzaman",
+            name: "Shohanuzzaman",
             University: "Islamic University, Bangladesh",
             Department:"ICT",
             Roll:1718021,
@@ -28,7 +28,7 @@ const againDocument = async () =>{
         })
 
         const firstData = new againModel({
-            name: "Md Sajid",
+            name: "Sajid",
             University: "Islamic University, Bangladesh",
             Department:"ICT",
             Roll:1718022,
@@ -36,7 +36,7 @@ const againDocument = async () =>{
         })
 
         const secondData = new againModel({
-            name: "Md Tareq",
+            name: "Tareq",
             University: "Islamic University, Bangladesh",
             Department:"ICT",
             Roll:1718016,
@@ -44,7 +44,7 @@ const againDocument = async () =>{
         })
 
         const thirdData = new againModel({
-            name: "Md Riad",
+            name: "Riad",
             University: "Islamic University, Bangladesh",
             Department:"ICT",
             Roll:1718002,
@@ -65,9 +65,19 @@ const againDocument = async () =>{
 // againDocument();
 
 
+//CRAD operation using nodejs
+
 const againGet = async () =>{
-    const again_result = await againModel.find({Department: "ICT"})
-    .select({name:1});
+    const again_result = await againModel
+    .find({Department: "ICT"})
+    .select({name:1})
+    // .find({Roll : {$lte: 1718020}})
+    // .select({name:1})
+    // .limit(1)
+    // .count()
+    .sort({name: 1});
+
+    
     console.log(again_result);
 }
 
